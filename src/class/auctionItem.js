@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Row, Col } from 'reactstrap';
 
 export default class AuctionItem extends React.Component  {
     constructor(props) {
@@ -7,13 +6,29 @@ export default class AuctionItem extends React.Component  {
         this._index = props.index;
         this._itemInfo = props.itemInfo;
         this._price = props.price;
-        // this._imgURL = 0;
 
         // TODO
+        this._itemName = 0;
+        this._imgURL = 0;
+
         this._remainTime = props.remainTime;
 
         this._seller = props.seller;
         this._winner = props.winner;
+    }
+    
+    handleClick(i) { 
+        var str = "You want to buy Auction " + this._index;
+        alert(str);
+    }
+    // renderInput()
+    // {
+    //     <input type="text" placeholder="add a price..." onChange={this.inputChangeHandler}/>
+    // }
+    renderButton(){
+        return(
+            <button onClick={this.handleClick}>Add</button>
+        );
     }
     // constructor(contract) {
     //     // .........
@@ -45,25 +60,26 @@ export default class AuctionItem extends React.Component  {
     render() {
         let str1 = "".concat(...["Auction ", this._index, ": "])
         // let str2 = "".concat(...["Price: ", this._price, "\t\t"])
+        var strs = [str1, "Price: "+this._price] 
         
 
         return (
-            <Container>
-                <Row>
-                    <Col >
-                        <p>{str1}</p>
-                        <p>Price: </p>
-                    </Col>
-                    <Col >
-                        <p>{}</p>
-                        <p>{this._price}</p>
-                    </Col>
-                </Row>
-                <Row>
-                    <input type="text" placeholder="add a price..." />
-                    <button > Add </button>
-                </Row>
-            </Container>
+            <div>
+                <div className="board-row">
+                    <p>{str1}</p>
+                    <p>Price: </p>
+                </div>
+                <div className="board-row">
+                    <p>...</p>
+                    <p>{this._price}</p>
+                </div>
+                <div>
+                    
+                    
+                    {this.renderButton()}
+                    
+                </div>
+            </div>
             
         );
     }

@@ -43,8 +43,9 @@ class App extends React.Component {
         {/* <showingtool1 /> */}
         {/* <h2>S.H.I.T!</h2> */}
         {/* <Button1 /> */}
+        <h1>it's {new Date().toLocaleTimeString()}</h1>
         <AuctionItem index={0} price={100} />
-        <AuctionList items={[80,20,160]} />
+        <AuctionList items={[80, 20, 160,  new Date().toLocaleTimeString() ]} />
         {/* <h1>I am a Header, too!</h1> */}
 
         
@@ -53,11 +54,13 @@ class App extends React.Component {
     );
   }
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+function tick(){
+  ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+  );
+}
+setInterval(tick, 1000);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

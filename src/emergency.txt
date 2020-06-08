@@ -1,0 +1,8 @@
+rm -rf node_modules
+rm package-lock.json
+npm cache clear --force
+npm install
+
+
+here is my place to save something.
+Pleace neglect it
